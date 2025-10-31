@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./registration.css">
+    <title>Registration Form</title>
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imagePreview').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    
+    function validateForm() {
+ 
+      const email = document.getElementById("email").value.trim();
+      const fullName = document.getElementById("fullname").value.trim();
+      const pincode = document.getElementById("Pincode").value.trim();
+      const phone = document.getElementById("number").value.trim();
+      const ten = document.getElementById("10th").value.trim();
+      const twelve = document.getElementById("12th").value.trim();
+      const degree = document.getElementById("degree").value.trim();
+
+
+      if (!email.includes("@") && !email.includes(".")) {
+        alert(" Email must contain '@' symbol.");
+        return false;
+      }
+
+      if (!fullName.includes(" ")) {
+        alert(" Full name must contain a space between first and last name.");
+        return false;
+      }
+
+      const pincheck = /^[0-9]{6}$/;
+      if (!pincheck.test(pincode)) {
+        alert(" Pincode must be exactly 6 digits.");
+        return false;
+      }
+
+      const phonecheck = /^[0-9]{10}$/;
+      if (!phonecheck.test(phone)) {
+        alert(" Phone number must be exactly 10 digits.");
+        return false;
+      }
+
+      const tencheck = /^[0-9]{2}$/;
+      if (!tencheck.test(ten)) {
+        alert(" 10th percentage must be exactly 2 digits.");
+        return false;
+      }
+
+      const twelvecheck = /^[0-9]{2}$/;
+      if (!twelvecheck.test(twelve)) {
+        alert(" 12th percentage must be exactly 2 digits.");
+        return false;
+      }
+
+      const degreecheck = /^[0-9]{2}$/;
+      if (!degreecheck.test(degree)) {
+        alert(" Degree percentage must be exactly 2 digits.");
+        return false;
+      }
+
+      const name = document.getElementById("fullname").value;
+            const mail = document.getElementById("email").value;
+            const number = document.getElementById("number").value;
+            const course = document.getElementById("course").value;
+            
+       
+            const message = "Hello " + name + "!\n\n" +
+            "Here are your submitted details:\n" +
+            "Email: " + email + "\n" +
+            "Contact Number: " + number + "\n" +
+            "Selected Course: " + course + "\n\n" +
+            "Registration Successful!";
+
+      alert(message);    
+      return true;
+    }
+    </script>
+</head>
+<body class="back">
+    <nav class="navbar">
+            <div>
+                <img src="./chd.png" alt="pic" class="logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="./home.html"><big>Home</big></a></li>
+                <li><a href="./profile.html"><big>Student Profile</big></a></li>
+                <li><a href="./record.html"><big>Academic Record</big></a></li>
+                <li><a href="./course.html"><big>Courses</big></a></li>
+                <li><a href="./registration.html"><big>Registration</big></a></li>
+            </ul>
+        </nav>
+
+        <div class="head">
+            <h1 class="color"><strong><u>Student Registration Form</u></strong></h1>
+        </div>
+       
+        <div class="container">
+            <form method="post" onsubmit="return validateForm()">
+                <fieldset>
+                    <legend style="text-align: center;color:  #ffffff;margin: 6px; padding: 5px;background-color: #003366;border-radius: 10px;width: 150px;height: 25px;">Fill up the form</legend>
+                        <label for="fullname">Full Name</label>
+                        <input class="fill" type="text" id="fullname" name="fullname" required>
+
+                        <label for="Mother">Mother Name</label>
+                        <input class="fill" type="text" id="Mother" name="Mother" required>
+
+                        <label for="Father">Father Name</label>
+                        <input class="fill" type="text" id="Father" name="Father" required>
+
+                        <label for="number">Contact Number</label>
+                        <input class="fill" type="number" id="number" name="number" required>
+
+                        <label for="email">Email</label>
+                        <input class="fill" type="email" id="email" name="email" required>
+
+                        <label for="dob">Date of Birth</label>
+                        <input class="fill" type="date" id="dob" name="dob" required>
+
+                        <label>Gender</label>
+                        <div class="choose">
+                            <label><input class="radio" type="radio" name="gender" value="Male" required> Male</label>
+                            <label><input class="radio" type="radio" name="gender" value="Female"> Female</label>
+                            <label><input class="radio" type="radio" name="gender" value="Other"> Other</label>
+                        </div>
+
+                        <label for="Country">Country</label>
+                        <select class="fill" name="country" id="Country">
+                            <option value="Choose Country">Choose Country</option>
+                            <option value="India">India</option>
+                            <option value="Australia">Australia</option>
+                            <option value="England">England</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Shri Lanka">Shri Lanka</option>
+                            <option value="West India">West India</option>
+                            <option value="Paris">Paris</option>
+                            <option value="Russia">Russia</option>
+                            <option value="America">America</option>
+                        </select>
+
+                        <label for="State">State</label>
+                        <select class="fill" name="state" id="State">
+                            <option value="Choose state">Choose State</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Hariyana">Hariyana</option>
+                            <option value="Utar Pardesh">Utar Pardesh</option>
+                            <option value="Utrakhand">Utrakhand</option>
+                            <option value="Himachal Pardesh">Himachal Pardesh</option>
+                            <option value="Jammu Kashmir">Jammu Kashmir</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="karnatka">karnatka</option>
+                            <option value="Asam">Asam</option>
+                            <option value="Bihar">Bihar</option>
+                        </select>
+                        <label for="City">City</label>
+                        <Select class="fill" name="city" id="City">
+                            <option value="Choose City">Choose City</option>
+                            <option value="Barnala">Barnala</option>
+                            <option value="Morinda">Morinda</option>
+                            <option value="Bassi Pathana">Bassi Pathana</option>
+                            <option value="Patiala">patiala</option>
+                            <option value="Bathinda">Bathinda</option>
+                            <option value="Hoshiyarpur">Hoshiyarpur</option>
+                            <option value="Pathankot">Pathankot</option>
+                            <option value="Amritsar">Amritsar</option>
+                            <option value="Ludhiana">Ludhiana</option>
+                            <option value="Jalandhar">Jalandhar</option>
+                        </Select>
+
+                        <label for="Pincode">Pin code</label>
+                        <input class="fill" type="number" id="Pincode" name="Pincode" required>
+
+                        <label for="address">Address</label>
+                        <textarea name="address" id="address" rows="7" cols="53" required></textarea>
+
+                        <label for="10th"> 10th Percntage</label>
+                        <input type="number" class="fill" name="percentage" id="10th" required>
+
+                        <label for="12th"> 12th Percntage</label>
+                        <input type="number" class="fill" name="percentage" id="12th" required>
+
+                        <label for="degree">Graduation Percentage</label>
+                        <input type="number" class="fill" name="percentage" id="degree" required>
+
+                        <label for="course">Course</label>
+                        <select class="fill" id="course" name="course"  required>
+                            <option value="Choose Course">Choose Course</option>
+                            <option value="MCA General">MCA General</option>
+                            <option value="MCA-AIML">MCA-AIML</option>
+                            <option value="MCA-CC & DevOps">MCA-CC & DevOps</option>
+                            <option value="PGDCA">PGDCA</option>
+                            <option value="MCA-Data Science">MCA-Data Science</option>
+                            <option value="MSc(Computer Science)">MSc(Computer Science)</option>
+                        </select>
+
+                        <label for="img"> Upload ur image</label>
+                        <input type="file" accept="image/*" onchange="previewImage(event)"><br>
+                        <img id="imagePreview" src="" alt="Profile Picture Preview">
+
+
+                        <button class="submit" type="submit">Register</button>
+                        <button class="clear" type="reset">Reset</button>
+                        <button class="cancel" type="button">Cancel</button>
+                </fieldset>
+            </form>
+        </div>
+  <footer class="foot">
+      <h4 style="text-align: center;padding: 10px;">@ Contact Us</h4>
+      <h4 style="text-align: center;padding: 10px;">Helpline Number 1234567890</h4>
+  </footer>
+</body>
+</html>
