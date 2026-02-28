@@ -20,7 +20,7 @@
     
     function validateForm() {
  
-      const email = document.getElementById("email").value.trim();
+  
       const fullName = document.getElementById("fullname").value.trim();
       const pincode = document.getElementById("Pincode").value.trim();
       const phone = document.getElementById("number").value.trim();
@@ -28,11 +28,6 @@
       const twelve = document.getElementById("12th").value.trim();
       const degree = document.getElementById("degree").value.trim();
 
-
-      if (!email.includes("@") && !email.includes(".")) {
-        alert(" Email must contain '@' symbol.");
-        return false;
-      }
 
       if (!fullName.includes(" ")) {
         alert(" Full name must contain a space between first and last name.");
