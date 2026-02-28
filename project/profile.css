@@ -1,42 +1,36 @@
-body 
-{
-  font-family: 'Times New Roman', Times, serif;
-  background: #F8F9FA;
-  margin: 0px;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+  url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  overflow-x: hidden;
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: #1B263B;
-    padding: 25px;
-    position: sticky; 
-    margin: 0px 0px 10px 0px;
+    align-items: center;
+    padding: 25px 40px;
+    background: linear-gradient(90deg, #1B263B, #2E4057);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.color
-{
-    color:#ecf0f1;
-    padding: 20px;
-    margin: 10px;
-    
+.pic {
+  width: 45px;
+  height: 45px;
+  transition: 0.3s ease;
 }
 
-.head
-{
-    text-align: center;
-    width: auto;
-    height: auto;
-    margin: 50px 20px;
-    background-color:#1B263B;
-    box-shadow: 0 0 10px black;
-    border-radius: 10px;
-    transition: ease-in-out 0.3s 0s;
-}
-
-.head:hover
-{
-   transform: scaleY(1.1);
+.pic:hover {
+  transform: rotate(8deg) scale(1.1);
 }
 
 .nav-links {
@@ -47,92 +41,137 @@ body
 }
 
 .nav-links li {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .nav-links a {
-    color: #ecf0f1;
+    position: relative;
+    color: #ffffff;
     text-decoration: none;
     font-size: 18px;
-    padding: 15px;
-    border-radius: 5px;
-    transition: ease-in-out 0.3s 0s;
+    padding: 12px 18px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+/* Underline slide effect */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    left: 0;
+    bottom: 5px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
-    background-color:black; 
+    transform: translateY(-3px);
 }
 
-.container 
-{
+.head {
+    text-align: center;
+    margin: 50px 20px;
+    padding: 20px;
+    background: linear-gradient(90deg, #1B263B, #2E4057);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    border-radius: 15px;
+    animation: fadeDown 1s ease forwards;
+}
+
+.color {
+    color:#ffffff;
+}
+
+.container {
   display: flex;
   gap: 50px;
   justify-content: center;
   padding: 40px;
   flex-wrap: wrap;
 }
-
-.profile 
-{
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 0 10px black;
-  background-color:  #1B263B;  
-  width: 317px;
-  height: 445px;
-  transition: ease-in-out 0.3s 0s;
+.profile {
+  border-radius: 20px;
+  padding: 20px;
+  width: 320px;
+  height: 515px;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(145deg, rgba(27,38,59,0.85), rgba(0,0,0,0.85));
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  transition: 0.4s ease;
+  animation: fadeUp 1s ease forwards;
 }
 
-.profile:hover
-{
- transform: scaleY(1.1);
- box-shadow: 0 0 30px black;
+.profile:hover {
+ transform: translateY(-10px) scale(1.05);
+ box-shadow: 0 20px 40px rgba(0,0,0,0.9);
 }
-.card-img 
-{
-  width: 300px;
+
+.card-img {
+  width: 100%;
   height: 200px;
   margin-bottom: 15px;
+  border-radius: 15px;
+  transition: 0.4s ease;
 }
 
-.pic
-{
-  width: 40px;
-  height: 40px;
-}
-.tag 
-{
-  padding: 4px 10px;
-  margin: 4px;
-  border-radius: 10px;
-  font-size: 18px;
+.profile:hover .card-img {
+  transform: scale(1.05);
 }
 
-.purple 
-{ background-color: #e4e2ff;
- color: #5a4fcf;
- font-style: italic; 
+.tag {
+  padding: 6px 12px;
+  margin: 5px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-block;
+  transition: 0.3s ease;
 }
 
-.green 
-{ background-color: #d4f8e8; 
-  color: #2a8c4a;
-  font-style:italic; 
+.tag:hover {
+  transform: scale(1.05);
 }
 
-.yellow 
-{ background-color: #fff3cd; 
-  color: #856404; 
-  font-style: italic;
+.purple {
+ background: linear-gradient(45deg, #dcd6ff, #b8aaff);
+ color: #2d1e8f;
 }
 
-.foot
-{
-    width: auto;
-    height: 100px;
+.green {
+ background: linear-gradient(45deg, #c8f7e4, #8ee0c2);
+ color: #0c5c3c;
+}
+
+.yellow {
+ background: linear-gradient(45deg, #fff3cd, #ffe08a);
+ color: #7a5c00;
+}
+
+.foot {
     text-align: center;
-    background-color: #1B263B;   
-    margin: 0px;
-    color: #ffffff;
+    background: linear-gradient(90deg, #1B263B, #2E4057);
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.7);
+    transition: 0.3s ease;
 }
 
+.foot:hover {
+    background: linear-gradient(90deg, #2E4057, #1B263B);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
